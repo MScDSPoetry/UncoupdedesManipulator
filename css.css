@@ -1,0 +1,237 @@
+
+/* Base page styling */
+body {
+  background-color: #f9f7f1;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+
+/* Layout container */
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Poem display area */
+.poem-container {
+  position: relative;
+  width: 1241px;
+  margin: 0 auto;
+  background-color: transparent; /* 改为透明 */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  isolation: isolate;
+  /* 关键：让 overflow 和 max-height 只在 plain-text-mode 下生效 */
+}
+
+/* 为普通页面模式保留背景和固定高度 */
+.poem-container:not(.plain-text-mode) {
+    height: 768px;
+    background: url('true.jpeg') no-repeat center center;
+    background-size: 150%;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.half {
+  position: relative;
+  float: left;
+  width: 50%;
+  /* 关键：删除固定的 height: 100% */
+}
+
+/* 为普通页面模式恢复 half 的高度和 overflow */
+.poem-container:not(.plain-text-mode) .half {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 专门为 Plain Text 模式的样式 */
+.poem-container.plain-text-mode {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 90vh;
+
+  background: url('true.jpeg') repeat-y center top;
+
+  background-size: 100% auto;
+}
+
+/* 在 Plain Text 模式下，让 half 容器占满宽度 */
+.poem-container.plain-text-mode .half {
+  width: 100%;
+  float: none;
+}
+
+
+/* Word elements */
+.word {
+  position: absolute;
+  white-space: pre;
+  z-index: 1;
+}
+
+.word.selected {
+  outline: 2px solid blue;
+}
+
+/* Highlight mode */
+.highlighted {
+  background-color: #ff474c;
+}
+
+/* —— 统一控制面板 —— */
+#controls {
+  position: relative; /* ← 加上这行, 为 z-index 生效创造条件 */
+  z-index: 10;      /* ← 加上这行, 把它“提”到上层 */
+  width: 100%;
+  padding: 10px 0;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+/* 每行按钮横向排列并左对齐 */
+#controls .control-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;       /* 按钮间距 */
+  margin: 5px 20px;/* 行内侧边距 */
+}
+
+/* —— 第 2 行 按钮蓝色 —— */
+#controls .control-row:nth-child(2) button {
+  background-color: #007bff; /* 你也可以换成其他蓝 */
+}
+#controls .control-row:nth-child(2) button:hover {
+  background-color: #0056b3;
+}
+
+/* —— 第 3 行 按钮红色 —— */
+#controls .control-row:nth-child(3) button {
+  background-color: #dc3545; /* 你也可以换成其他红 */
+}
+#controls .control-row:nth-child(3) button:hover {
+  background-color: #a71d2a;
+}
+
+/* —— 第 4 行 居中 Prev/Next —— */
+#controls .control-row:nth-child(4) {
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #4c4c4c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+/* Prompt box */
+.prompt-box {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+#randomPrompt {
+  display: none;
+}
+
+/* Tooltip */
+#tooltip {
+  position: absolute;
+  display: none;
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  z-index: 1000;
+}
+
+
+.layout-caveat {
+  font-style: italic;
+  color: #a00;
+  margin: 10px 20px;
+}
+
+/* —— SITE HEADER —— */
+#site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+#site-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+#site-header nav a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* —— ABOUT PAGE —— */
+#aboutPage {
+  display: none;      /* hidden by default */
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+/* —— CONTENT TOGGLE CLASSES —— */
+#mainContent.hidden {
+  display: none;
+}
+#aboutPage.active {
+  display: block;
+}
+
+/* 去掉 word 元素获得焦点时的默认蓝色轮廓 */
+.word:focus {
+  outline: none;
+}
+
+/* 如果你给 .word 元素加了 .selected 选中类，也去掉它的轮廓 */
+.word.selected {
+  outline: none;
+}
+
+/* 同理，如果你想按钮也不要蓝框，可以加： */
+button:focus {
+  outline: none;
+}
+
+.poem-text {
+  font-family: 'EB Garamond', serif;
+}

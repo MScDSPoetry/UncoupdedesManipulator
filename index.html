@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mallarmé Interactive Layout</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mallarmé Interactive Layout Explorer</h1>
+         <nav>
+      <a href="#" id="aboutBtn">About</a>
+        </nav>  
+        </div>
+        
+        <section id="aboutPage">
+    <h2>About This Project</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula cursus ante, vitae posuere nulla cursus eu. Praesent commodo nisi nec lorem interdum, ut tristique purus mollis.
+    </p>
+  </section>
+        
+        <div id="randomPrompt" class="prompt-box">
+            Drag words horizontally to create your own interpretation. Click on words to highlight them.
+        </div>
+        
+    <div id="mainContent">
+        <div id="controls">
+        
+              <div class="control-row">
+            <button id="firstPageBtn">First Page</button>
+            <button id="plainTextBtn">Plain Text</button>
+            <button id="englishBtn">English</button>
+            <button id="frenchBtn">Français</button> 
+            </div>
+             <div class="control-row">
+      <button id="highlightBtn">Toggle Highlight Mode</button>
+      <button id="increaseFontBtn">Increase Font Size</button>
+      <button id="decreaseFontBtn">Decrease Font Size</button>
+      <button id="boldBtn">Make Bold</button>
+      <button id="italicBtn">Italic / Normal </button>
+             </div>
+    
+             <div class="control-row">
+      <button id="randomLayoutBtn">Generate Random Layout</button>
+      <button id="saveLayoutBtn">Save Current Layout</button>
+      <button id="resetLayoutBtn">Reset to Original</button>
+      <button id="newPromptBtn">New Interpretive Prompt</button>
+            </div>
+            <div class="control-row">
+      <button id="prevPageBtn">Prev Double-Page</button>
+      <span id="pageIndicator">Page 1 / 2</span>
+      <button id="nextPageBtn">Next Double-Page</button>
+            </div>
+  </div>
+  </div>
+        
+        <div class="poem-container" id="poemContainer"> 
+            <div class="half left-half"></div>
+            <div class="half right-half"></div>
+        </div>
+        
+        <div class="panel" id="savedLayouts">
+            <h3>Saved Layouts</h3>
+            <div id="noSavedLayouts">No layouts saved yet.</div>
+        </div>
+    </div>
+    <script src="js.js20250720.js"></script>
+</body>
+</html>
