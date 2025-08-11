@@ -1,0 +1,291 @@
+
+body {
+  background-color: #fbfaf6;
+  color: #2f2f2f;
+  margin: 0;
+  padding: 20px;
+}
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+.poem-container {
+  position: relative;
+  width: 1241px;
+  margin: 0 auto;
+  background-color: transparent; 
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(9, 9, 9, 0.1);
+  isolation: isolate;
+ 
+}
+
+
+.poem-container:not(.plain-text-mode) {
+    height: 768px;
+    background: url('background.jpeg') no-repeat center center;
+    background-size: 150%;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.half {
+  position: relative;
+  float: left;
+  width: 50%;
+
+}
+
+.poem-container:not(.plain-text-mode) .half {
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.poem-container.plain-text-mode {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 90vh;
+
+  background: url('background.jpeg') repeat-y center top;
+
+  background-size: 100% auto;
+}
+
+
+.poem-container.plain-text-mode .half {
+  width: 100%;
+  float: none;
+}
+
+
+
+.word {
+  position: absolute;
+  white-space: pre;
+  z-index: 1;
+}
+
+
+
+.highlighted {
+  background-color: #75aef5;
+}
+
+
+#controls {
+  position: relative; 
+  z-index: 10;     
+  width: 100%;
+  padding: 10px 0;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+
+#controls .control-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;      
+  margin: 5px 20px;
+}
+
+
+#controls .control-row:nth-child(2) button {
+  background-color: #007bff; 
+}
+#controls .control-row:nth-child(2) button:hover {
+  background-color: #0056b3;
+}
+
+
+#controls .control-row:nth-child(3) button {
+  background-color: #dc3545; 
+}
+#controls .control-row:nth-child(3) button:hover {
+  background-color: #a71d2a;
+}
+
+
+#controls .control-row:nth-child(4) {
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #4c4c4c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+
+.prompt-box {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+#randomPrompt {
+  display: none;
+}
+
+
+.layout-caveat {
+  font-style: italic;
+  color: #a00;
+  margin: 10px 20px;
+}
+
+
+#site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+#site-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+#site-header nav a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+
+#aboutPage {
+  display: none;     
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+
+#mainContent.hidden {
+  display: none;
+}
+#aboutPage.active {
+  display: block;
+}
+
+
+.word:focus {
+  outline: none;
+}
+
+
+
+button:focus {
+  outline: none;
+}
+
+.poem-text {
+  font-family: 'EB Garamond', serif;
+}
+
+.about-page {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.about-page.active {
+    display: block;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-about {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-about:hover {
+    color: #000;
+}
+
+.about-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.about-section:last-child {
+    border-bottom: none;
+}
+
+.about-section h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.features-list,
+.instructions-list {
+    margin-left: 20px;
+    line-height: 1.8;
+}
+
+.features-list li {
+    margin-bottom: 10px;
+}
+
+.copyright-notice {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.copyright-notice p {
+    margin-bottom: 10px;
+}

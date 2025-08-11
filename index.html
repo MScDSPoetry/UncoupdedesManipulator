@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Visual Manipulator of <i>Un Coup de Dés</i></title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Interactive Visual Manipulator of <i>Un Coup de Dés</i></h1>
+         <nav>
+      <a href="#" id="aboutBtn">About</a>
+        </nav>  
+        </div>
+        
+        <section id="aboutPage" class="about-page">
+    <div class="about-container">
+        <button class="close-about" id="closeAboutBtn">× Close</button>
+        
+        <h2>About This Project</h2>
+        
+        <div class="about-section">
+            <h3>What is this project?</h3>
+            <p>This platform is a hands-on tool for exploring the visual dimension of poetry. It lets the users to experiment with space, typography, and layout—seeing for themselves how visual form shapes meaning. Inspired by the logics of contemporary digital media, it turns reading into an active, creative process.</p>
+        </div>
+        
+        <div class="about-section">
+            <h3>Features & Functions</h3>
+            <ul class="features-list">
+                <li><strong>Text Dragging:</strong>The core feature of the platform allows users to click and drag individual phrases across the half page. The dragging functionality preserves the original typographic properties (font size and italicisation) while allowing spatial experimentation. This feature transforms the poem from a static text into a dynamic field of spatial possibilities, enabling students to experience firsthand how meaning shifts with placement.</li>
+                <li><strong>Typographical Manipulation:</strong> Multiple typographic controls allow users to modify the visual weight and emphasis of textual elements. Two buttons ("Increase Font Size" and "Decrease Font Size") allow users to modify the scale of textual elements while controls for bold, highlight, and italicisation provide further dimensions of emphasis. Students can thus emphasise particular words or phrases by enlarging them or diminish others by reducing their size. This feature demonstrates how typographic hierarchy creates visual rhythm and semantic emphasis—a crucial aspect of Mallarmé's original design where certain phrases appear in dramatically larger type to suggest their thematic weight.</li>
+                <li><strong>Random Layout Generation:</strong> The "Randomise Layout" button triggers a JavaScript function that randomly redistributes all textual elements across the available space. This feature directly echoes the poem's central metaphor of "a throw of the dice," transforming chance from theme to method. Each randomisation creates unexpected juxtapositions and spatial relationships, encouraging students to consider arrangements they might never have imagined independently.</li>
+                <li><strong>Save & Load:</strong>A save button allows users to capture their arrangements as image files. However, the platform includes a "Save Layout" button. This function only preserves arrangements within the current browser session—any refresh or language switch erases saved configurations. Students must therefore rely on screenshots to permanently capture their arrangements. This limitation is reminded by a caveat: “The "Save Layout" feature only persists in your current browser session and will be lost if you refresh, close the page, or switch between the two languages. Be sure to take screenshots of each layout to avoid losing your work.”</li>
+                <li><strong>Reset Layout:</strong>A reset button returns all text elements to their original positions based on the 1914 Nouvelle Revue Française edition or its English version equivalent. This feature is crucial for the platform's pedagogical accessibility—it allows unlimited experimentation without permanent consequences. Students can make bold rearrangements knowing they can always return to Mallarmé's layout, encouraging risk-taking and iterative exploration.</li>
+                <li><strong>Bilingual Support:</strong>A toggle button enables instant switching between the original French text and A.S. Kline's English translation. This bilingual functionality serves multiple pedagogical purposes: it makes the poem accessible to non-French speakers while also allowing comparative analysis of how translation affects spatial arrangement. Students can observe how different linguistic structures occupy space differently on the page</li>
+                <li><strong>Plain Text View:</strong>This feature strips away all spatial and typographic formatting, presenting the poem as a continuous, single-column text—similar to conventional poetry. This minimalist mode may seem counterintuitive within a platform built around visual experimentation, but its pedagogical value lies precisely in contrast. By flattening Mallarmé’s revolutionary layout into a single-column block of text, students are offered a clear and immediate comparison: they are invited to confront what is lost when visual form is removed, and how meaning shifts when space and typography no longer perform important roles. </li>
+                <li><strong>Bilingual Support:</strong>A “New Interpretive Prompts" button reveals a curated set of experimental instructions, which are designed to provide a starting point for the students to attempt to rearrange the words as they get inspired by the prompts. The prompts include technical suggestions and interpretative prompts: “Create maximum contrast using only size variations” and “Arrange the poem as if the words themselves were drowning”.</li>
+            </ul>
+        </div>
+        
+        <div class="about-section">
+            <h3>Copyright & References</h3>
+            <div class="copyright-notice">
+                <p><strong>Original Text:</strong></p>
+                <p>Stéphane Mallarmé, <i>Un Coup de Dés Jamais N'Abolira Le Hasard</i> </p>
+                <p>Published by <i>Nouvelle Revue française</i> in 1914, Paris.</p>
+                <p>The coordinates used for layout reconstruction were derived from the 1914 edition of <i>Un Coup de Dés Jamais N’Abolira le Hasard</i>, as digitised by the <a href="https://archive.org/details/s.-mallarme-un-coup-de-des-jamais-nabolira-le-hasard.-poeme-1914/mode/2up" target="_blank">Internet Archive</a>，without using or modifying the digitised images themselves. Mallarmé's work has entered public domain since 1969, 70 years after his death.</p>
+        
+                <p><strong>English Translation:</strong></p>
+                <p>Translation by A.S. Kline, 2007. Available via <a href="https://www.poetryintranslation.com/PITBR/French/MallarmeUnCoupdeDes.php" target="_blank">Poetry in translation</a>.</p>
+                <p>License: This work may be freely reproduced, stored and transmitted, electronically or otherwise, for any non-commercial purpose.</p>
+
+                <p><strong>GitHub Page</strong></p>
+                <p>The full source code is available on GitHub. To adapt the platform for another text, replace the poem content and its layout coordinates in the Javascript file with your own text and positions.</p>
+                <p>Available via <a href="https://github.com/MScDSPoetry/UncoupdedesManipulator" target="_blank">GitHub Page</a>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+        
+        <div id="randomPrompt" class="prompt-box">
+        </div>
+        
+    <div id="mainContent">
+        <div id="controls">
+        
+              <div class="control-row">
+            <button id="firstPageBtn">First Page</button>
+            <button id="plainTextBtn">Plain Text</button>
+            <button id="englishBtn">English</button>
+            <button id="frenchBtn">Français</button> 
+            </div>
+             <div class="control-row">
+      <button id="highlightBtn">Toggle Highlight Mode</button>
+      <button id="increaseFontBtn">Increase Font Size</button>
+      <button id="decreaseFontBtn">Decrease Font Size</button>
+      <button id="boldBtn">Make Bold</button>
+      <button id="italicBtn">Italic / Normal </button>
+             </div>
+    
+             <div class="control-row">
+      <button id="randomLayoutBtn">Generate Random Layout</button>
+      <button id="saveLayoutBtn">Save Current Layout</button>
+      <button id="resetLayoutBtn">Reset to Original</button>
+      <button id="newPromptBtn">New Interpretive Prompt</button>
+            </div>
+            <div class="control-row">
+      <button id="prevPageBtn">Prev Double-Page</button>
+      <span id="pageIndicator">Page 1 / 2</span>
+      <button id="nextPageBtn">Next Double-Page</button>
+            </div>
+  </div>
+  </div>
+        
+        <div class="poem-container" id="poemContainer"> 
+            <div class="half left-half"></div>
+            <div class="half right-half"></div>
+        </div>
+        
+        <div class="panel" id="savedLayouts">
+            <h3>Saved Layouts</h3>
+            <div id="noSavedLayouts">No layouts saved yet.</div>
+        </div>
+    </div>
+    <script src="js.js"></script>
+</body>
+</html>
